@@ -27,6 +27,9 @@ class SimulationSession:
 
         self.solver_fixed = FixedTimeSolver()
         self.solver_rule = RuleBasedSolver()
+        self.ctrl_sa = RecedingHorizonController(self.sim_sa.network, solver_type="annealing")
+        self.ctrl_qaoa = RecedingHorizonController(self.sim_qaoa.network, solver_type="qaoa", backend="qiskit")
+
         # Initial signal states default to NS green
         initial_plan = {node_id: config.PHASE_NS for node_id in self.sim_fixed.network.intersections}
         self.sim_fixed.apply_signal_plan(initial_plan)
