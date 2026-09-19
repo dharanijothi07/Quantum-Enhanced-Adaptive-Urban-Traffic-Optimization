@@ -194,6 +194,7 @@ async def get_network():
     return {
         "map_center": list(config.MAP_CENTER),
         "grid_spacing_deg": config.GRID_SPACING_DEG,
+        "map_api_key": config.MAP_API_KEY,
         "intersections": intersections,
         "links": links
     }

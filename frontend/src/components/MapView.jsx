@@ -1,7 +1,8 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { MapContainer, TileLayer, CircleMarker, Polyline, Tooltip, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { getMapApiKey } from '../mapConfig';
 
 // Fix default Leaflet icon paths
 delete L.Icon.Default.prototype._getIconUrl;
@@ -37,6 +38,7 @@ export default function MapView({ network, state }) {
   const mapCenter = network?.map_center || [12.9716, 77.5946];
   const intersections = network?.intersections || {};
   const links = network?.links || {};
+  const apiKey = getMapApiKey(network?.map_api_key);
 
   const signals = state?.signals || {};
   const linkStates = state?.links || {};
@@ -187,6 +189,15 @@ export default function MapView({ network, state }) {
           </Marker>
         )}
       </MapContainer>
+
+      {/* Top Right: Map API Integration Badge */}
+      <div className="absolute top-3 right-3 z-[1000] bg-slate-900/90 backdrop-blur border border-cyan-500/40 rounded-xl px-3 py-1.5 text-xs text-slate-200 flex items-center gap-2 shadow-2xl">
+        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span className="text-cyan-300 font-semibold">Map API:</span>
+        <span className="font-mono text-slate-300">
+          {apiKey ? `${apiKey.slice(0, 10)}...${apiKey.slice(-6)}` : 'Connected'}
+        </span>
+      </div>
 
       {/* Map Legend & Overlay Badges */}
       <div className="absolute bottom-3 left-3 z-[1000] bg-slate-900/85 backdrop-blur border border-slate-700/80 rounded-xl p-2.5 text-[11px] text-slate-200 flex flex-wrap items-center gap-4 shadow-xl">

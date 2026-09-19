@@ -13,6 +13,7 @@ TOTAL_INTERSECTIONS: int = DEFAULT_GRID_ROWS * DEFAULT_GRID_COLS # 6
 
 MAP_CENTER: Tuple[float, float] = (12.9716, 77.5946) # Bengaluru city center default lat/lon
 GRID_SPACING_DEG: float = 0.004 # Approximate spatial grid offset in degrees (~440m)
+MAP_API_KEY: str = "rc_aa67a6ad9f7b854e105e085bfa3c4197e1488db27aaf891fe93ded2ce2accb78"
 
 DEFAULT_LINK_CAPACITY: int = 30 # Maximum vehicles stored per link
 DEFAULT_LINK_LENGTH_M: float = 200.0 # Physical length of link in meters
