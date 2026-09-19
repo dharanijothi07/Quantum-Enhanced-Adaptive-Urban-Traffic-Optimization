@@ -1,9 +1,20 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
+function getWsUrl() {
+  if (typeof window === 'undefined') return 'ws://localhost:8000/ws';
+  const loc = window.location;
+  if (loc.hostname === 'localhost' && loc.port === '5173') {
+    return 'ws://localhost:8000/ws';
+  }
+  const protocol = loc.protocol === 'https:' ? 'wss:' : 'ws:';
+  return `${protocol}//${loc.host}/ws`;
+}
+
 /**
  * Custom hook for resilient, auto-reconnecting WebSocket streaming.
  */
-export function useSocket(url = 'ws://localhost:8000/ws') {
+export function useSocket(initialUrl) {
+  const url = initialUrl || getWsUrl();
   const [latestState, setLatestState] = useState(null);
   const [connected, setConnected] = useState(false);
   const [isReplaying, setIsReplaying] = useState(false);
@@ -14,13 +25,14 @@ export function useSocket(url = 'ws://localhost:8000/ws') {
   const connect = useCallback(() => {
     if (isReplaying) return;
     try {
-      const ws = new WebSocket(url);
+      const wsUrl = getWsUrl();
+      const ws = new WebSocket(wsUrl);
       socketRef.current = ws;
 
       ws.onopen = () => {
         setConnected(true);
         reconnectDelayRef.current = 1000;
-        console.log('[WebSocket] Connected to QuantumFlow engine');
+        console.log('[WebSocket] Connected to QuantumFlow engine at', wsUrl);
       };
 
       ws.onmessage = (event) => {
@@ -52,7 +64,7 @@ export function useSocket(url = 'ws://localhost:8000/ws') {
       console.error('[WebSocket] Setup exception:', err);
       reconnectTimeoutRef.current = setTimeout(connect, 2000);
     }
-  }, [url, isReplaying]);
+  }, [isReplaying]);
 
   useEffect(() => {
     connect();
