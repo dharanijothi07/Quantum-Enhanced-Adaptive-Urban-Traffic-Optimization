@@ -1,0 +1,195 @@
+{
+  "metadata": {
+    "num_seeds": 5,
+    "duration_s": 600,
+    "timestamp": "2026-09-20 00:01:31"
+  },
+  "methods": {
+    "fixed": {
+      "avg_wait": {
+        "mean": 15.32,
+        "std": 0.6
+      },
+      "avg_queue": {
+        "mean": 1.32,
+        "std": 0.16
+      },
+      "throughput_h": {
+        "mean": 4516.8,
+        "std": 123.86
+      },
+      "fuel_l": {
+        "mean": 73.13,
+        "std": 2.14
+      },
+      "co2_kg": {
+        "mean": 168.92,
+        "std": 4.94
+      },
+      "amb_time": {
+        "mean": 77.0,
+        "std": 0.0
+      },
+      "pct_improvement": {
+        "wait_time_pct": 0.0,
+        "queue_pct": 0.0,
+        "throughput_pct": 0.0,
+        "fuel_pct": 0.0
+      }
+    },
+    "rule_based": {
+      "avg_wait": {
+        "mean": 13.06,
+        "std": 1.7
+      },
+      "avg_queue": {
+        "mean": 1.07,
+        "std": 0.1
+      },
+      "throughput_h": {
+        "mean": 4598.4,
+        "std": 131.81
+      },
+      "fuel_l": {
+        "mean": 71.72,
+        "std": 3.52
+      },
+      "co2_kg": {
+        "mean": 165.68,
+        "std": 8.14
+      },
+      "amb_time": {
+        "mean": 68.0,
+        "std": 0.0
+      },
+      "pct_improvement": {
+        "wait_time_pct": 14.8,
+        "queue_pct": 18.9,
+        "throughput_pct": 1.8,
+        "fuel_pct": 1.9
+      }
+    },
+    "annealing": {
+      "avg_wait": {
+        "mean": 11.39,
+        "std": 1.98
+      },
+      "avg_queue": {
+        "mean": 0.84,
+        "std": 0.18
+      },
+      "throughput_h": {
+        "mean": 4648.8,
+        "std": 197.41
+      },
+      "fuel_l": {
+        "mean": 71.14,
+        "std": 4.09
+      },
+      "co2_kg": {
+        "mean": 164.33,
+        "std": 9.46
+      },
+      "amb_time": {
+        "mean": 68.0,
+        "std": 0.0
+      },
+      "pct_improvement": {
+        "wait_time_pct": 25.7,
+        "queue_pct": 36.4,
+        "throughput_pct": 2.9,
+        "fuel_pct": 2.7
+      }
+    },
+    "qaoa": {
+      "avg_wait": {
+        "mean": 14.67,
+        "std": 1.18
+      },
+      "avg_queue": {
+        "mean": 1.23,
+        "std": 0.22
+      },
+      "throughput_h": {
+        "mean": 4700.4,
+        "std": 127.26
+      },
+      "fuel_l": {
+        "mean": 74.0,
+        "std": 1.48
+      },
+      "co2_kg": {
+        "mean": 170.94,
+        "std": 3.42
+      },
+      "amb_time": {
+        "mean": 70.4,
+        "std": 4.8
+      },
+      "pct_improvement": {
+        "wait_time_pct": 4.2,
+        "queue_pct": 6.8,
+        "throughput_pct": 4.1,
+        "fuel_pct": -1.2
+      }
+    }
+  },
+  "ambulance_corridor_comparison": {
+    "rule_based": {
+      "mean_time_corridor_on_s": 68.0,
+      "mean_time_corridor_off_s": 68.0,
+      "pct_speedup": 0.0
+    },
+    "annealing": {
+      "mean_time_corridor_on_s": 68.0,
+      "mean_time_corridor_off_s": 76.4,
+      "pct_speedup": 11.0
+    },
+    "qaoa": {
+      "mean_time_corridor_on_s": 70.4,
+      "mean_time_corridor_off_s": 84.4,
+      "pct_speedup": 16.6
+    }
+  },
+  "raw_seeds": [
+    {
+      "seed": 42,
+      "qaoa_wait": 13.21,
+      "fixed_wait": 16.17,
+      "qaoa_amb_time": 80,
+      "fixed_amb_time": 77
+    },
+    {
+      "seed": 49,
+      "qaoa_wait": 16.42,
+      "fixed_wait": 15.7,
+      "qaoa_amb_time": 68,
+      "fixed_amb_time": 77
+    },
+    {
+      "seed": 56,
+      "qaoa_wait": 15.16,
+      "fixed_wait": 15.2,
+      "qaoa_amb_time": 68,
+      "fixed_amb_time": 77
+    },
+    {
+      "seed": 63,
+      "qaoa_wait": 15.05,
+      "fixed_wait": 14.37,
+      "qaoa_amb_time": 68,
+      "fixed_amb_time": 77
+    },
+    {
+      "seed": 70,
+      "qaoa_wait": 13.51,
+      "fixed_wait": 15.16,
+      "qaoa_amb_time": 68,
+      "fixed_amb_time": 77
+    }
+  ],
+  "qaoa_summary": {
+    "mean_optimality_gap": 0.7428,
+    "mean_wall_time_s": 3.006
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "name": "campus-ai",
+  "name": "quantumflow",
   "private": true,
   "scripts": {
     "build": "npm run build --prefix frontend"
