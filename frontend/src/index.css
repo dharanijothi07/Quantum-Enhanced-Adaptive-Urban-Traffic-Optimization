@@ -17,6 +17,11 @@ body {
   background-color: #090d16 !important;
 }
 
+/* Dark mode theme for map tiles (no API watermarks, sleek nighttime roads) */
+.leaflet-tile {
+  filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.25) brightness(0.75) !important;
+}
+
 .leaflet-control-zoom a {
   background-color: #0f172a !important;
   color: #38bdf8 !important;
